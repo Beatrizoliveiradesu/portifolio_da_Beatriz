@@ -1,0 +1,232 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="navbar">
+  <div class="container nav-container">
+    <a href="#" class="logo">
+      <span>Beatriz</span>.oliveira
+    </a>
+    
+    <nav class="nav-menu" id="nav-menu">
+      <ul class="nav-list">
+        <li><a href="#about" class="nav-link">Sobre</a></li>
+        <li><a href="#skills" class="nav-link">Habilidades</a></li>
+        <li><a href="#projects" class="nav-link">Projetos</a></li>
+        <li><a href="#contact" class="nav-link">Contato</a></li>
+      </ul>
+    </nav>
+    
+    <div class="nav-actions">
+      <ThemeToggle />
+      
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu de navegação">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 248, 249, 0.7);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--border-color);
+    transition: background var(--transition-normal), border var(--transition-normal), transform var(--transition-normal);
+  }
+
+  :global([data-theme="dark"]) .navbar {
+    background: rgba(21, 13, 15, 0.7);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .logo {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    color: var(--accent-rose);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    position: relative;
+    padding: 0.25rem 0;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-normal);
+    border-radius: var(--radius-full);
+  }
+
+  .nav-link:hover {
+    color: var(--text-main);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Mobile Hamburger Toggle */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-main);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+  }
+
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-left: 1px solid var(--border-color);
+      box-shadow: -10px 0 30px var(--shadow-color);
+      padding: 80px 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: right var(--transition-slow);
+    }
+
+    .nav-menu.active {
+      right: 0;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      font-size: 1.2rem;
+    }
+
+    /* Hamburger Active Animation */
+    .mobile-toggle.active .hamburger-line:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .mobile-toggle.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    
+    .mobile-toggle.active .hamburger-line:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+</style>
+
+<script>
+  const initNavbar = () => {
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (mobileToggle && navMenu) {
+      const toggleMenu = () => {
+        mobileToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        // Prevent body scrolling when menu is open
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+      };
+
+      mobileToggle.addEventListener('click', toggleMenu);
+
+      // Close menu when a link is clicked
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    // Scroll effect - Add shadow/opacity adjustment on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (navbar) {
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+          navbar.style.boxShadow = '0 4px 20px var(--shadow-color)';
+        } else {
+          navbar.classList.remove('scrolled');
+          navbar.style.boxShadow = '';
+        }
+      }
+    });
+  };
+
+  // Run on page load
+  initNavbar();
+
+  // Run on View Transitions navigate if used later
+  document.addEventListener('astro:after-swap', initNavbar);
+</script>

@@ -1,0 +1,342 @@
+---
+---
+
+<section id="contact" class="contact section">
+  <div class="container">
+    <h2 class="section-title">Contato</h2>
+    <p class="contact-subtitle">Tem um projeto em mente, deseja discutir uma oportunidade ou simplesmente quer dizer oi? Envie uma mensagem!</p>
+    
+    <div class="grid-2 contact-grid">
+      <!-- Contact Info Cards -->
+      <div class="contact-info">
+        <h3 class="info-title">Vamos conversar!</h3>
+        <p class="info-desc">Estou aberta a novas oportunidades de desenvolvimento, análise de dados e design de produto. Sinta-se à vontade para entrar em contato.</p>
+        
+        <div class="info-items">
+          <div class="info-item glass-panel">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <h4>E-mail</h4>
+              <a href="mailto:beatriz.oliveira@exemplo.com" class="info-link">beatriz.oliveira@exemplo.com</a>
+            </div>
+          </div>
+          
+          <div class="info-item glass-panel">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <h4>Localização</h4>
+              <p>Florianópolis, Santa Catarina, Brasil</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-btn glass-panel" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="#" class="social-btn glass-panel" aria-label="Github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-container glass-panel">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required placeholder="Seu nome" class="form-input" />
+          </div>
+          
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com" class="form-input" />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Como posso te ajudar?" class="form-input"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-submit">
+            Enviar Mensagem
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+        
+        <div class="form-success-message" id="success-message">
+          <span class="success-icon">✨</span>
+          <h3>Mensagem enviada com sucesso!</h3>
+          <p>Obrigada por entrar em contato, responderei o mais breve possível.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Area -->
+    <footer class="footer">
+      <p>&copy; {new Date().getFullYear()} Beatriz Oliveira. Desenvolvido com Astro e carinho.</p>
+      <p class="footer-sub">Florianópolis, Santa Catarina, Brasil</p>
+    </footer>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background-color: var(--bg-primary);
+  }
+
+  .contact-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: -2.5rem;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-grid {
+    align-items: stretch;
+    gap: 3.5rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .info-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+  }
+
+  .info-desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .info-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 183, 197, 0.18);
+    color: var(--accent-rose);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-item h4 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+
+  .info-item p, .info-link {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  .info-link:hover {
+    color: var(--accent-rose);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-btn {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    border-radius: var(--radius-full);
+  }
+
+  .social-btn:hover {
+    color: var(--text-light);
+    background: var(--gradient-primary);
+    border-color: transparent;
+  }
+
+  /* Form Styles */
+  .contact-form-container {
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: opacity var(--transition-normal);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .form-input {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: all var(--transition-fast);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--accent-rose);
+    box-shadow: 0 0 0 3px rgba(255, 183, 197, 0.3);
+    background: var(--bg-primary);
+  }
+
+  .form-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .btn-submit {
+    align-self: flex-start;
+    padding: 0.9rem 2.25rem;
+    font-size: 1rem;
+  }
+
+  /* Success Message Styling */
+  .form-success-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+  }
+
+  .form-success-message.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: successPulse 2s infinite;
+  }
+
+  .form-success-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+  }
+
+  .form-success-message p {
+    color: var(--text-muted);
+    max-width: 320px;
+    font-size: 0.95rem;
+  }
+
+  @keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  /* Footer Styling */
+  .footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .footer-sub {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+</style>
+
+<script>
+  const initForm = () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const successMsg = document.getElementById('success-message');
+
+    if (form && successMsg) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Emulate sending (usually using fetch/Formspree/etc)
+        successMsg.classList.add('active');
+        form.reset();
+
+        // Optional: Hide success message after 5 seconds
+        setTimeout(() => {
+          successMsg.classList.remove('active');
+        }, 5000);
+      });
+    }
+  };
+
+  // Run on page load
+  initForm();
+
+  // Run on View Transitions navigate if used later
+  document.addEventListener('astro:after-swap', initForm);
+</script>

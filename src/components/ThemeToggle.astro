@@ -1,0 +1,98 @@
+<button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema de cores">
+  <!-- Sun Icon (Dark Mode Active -> Click to go Light) -->
+  <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+  </svg>
+  
+  <!-- Moon Icon (Light Mode Active -> Click to go Dark) -->
+  <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+  </svg>
+</button>
+
+<style>
+  .theme-toggle-btn {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-color);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .theme-toggle-btn:hover {
+    transform: scale(1.08) rotate(15deg);
+    border-color: var(--primary-pink);
+    box-shadow: 0 6px 16px var(--shadow-glow);
+  }
+
+  .theme-toggle-btn:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transition: transform var(--transition-slow) cubic-bezier(0.34, 1.56, 0.64, 1), opacity var(--transition-normal);
+  }
+
+  /* Light Theme Specific Display */
+  :global([data-theme="light"]) .sun-icon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+  }
+
+  :global([data-theme="light"]) .moon-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  /* Dark Theme Specific Display */
+  :global([data-theme="dark"]) .sun-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  :global([data-theme="dark"]) .moon-icon {
+    opacity: 0;
+    transform: scale(0.5) rotate(90deg);
+  }
+</style>
+
+<script>
+  const handleToggle = () => {
+    const element = document.documentElement;
+    const currentTheme = element.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    element.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+  const initThemeToggle = () => {
+    const button = document.getElementById('theme-toggle');
+    if (button) {
+      // Remove old listener if exists during dev reloads
+      button.removeEventListener('click', handleToggle);
+      button.addEventListener('click', handleToggle);
+    }
+  };
+
+  // Run on page load
+  initThemeToggle();
+
+  // Run on View Transitions navigate if used later
+  document.addEventListener('astro:after-swap', initThemeToggle);
+</script>

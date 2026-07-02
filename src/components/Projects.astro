@@ -1,0 +1,421 @@
+---
+const projects = [
+  {
+    title: "EcoShop - E-Commerce UX & Dev",
+    description: "Um e-commerce elegante de produtos sustentáveis. Focado em UX/UI, possui carrinho interativo de alta performance, checkout simplificado e design responsivo.",
+    tags: ["Javascript", "HTML/CSS", "UX / UI", "Nodejs"],
+    links: { github: "#", live: "#" },
+    graphicType: "ecommerce"
+  },
+  {
+    title: "InsightSales - Power BI & SQL",
+    description: "Dashboard interativo conectado a um banco SQL de vendas, analisando o comportamento dos clientes e o faturamento trimestral com visualizações refinadas.",
+    tags: ["Power BI", "SQL", "Python", "Pandas"],
+    links: { github: "#", live: "#" },
+    graphicType: "data-dashboard"
+  },
+  {
+    title: "DataPulse - Analytics com Pandas",
+    description: "Uma API RESTful integrada a um pipeline de ETL em Python que coleta dados de vendas e processa indicadores chaves de performance em tempo real.",
+    tags: ["Nodejs", "Python", "Pandas", "SQL"],
+    links: { github: "#", live: "#" },
+    graphicType: "api-pipeline"
+  }
+];
+---
+
+<section id="projects" class="projects section">
+  <div class="container">
+    <h2 class="section-title">Projetos em Destaque</h2>
+    <p class="projects-subtitle">Projetos que desenvolvi que reúnem design premium, códigos limpos e análise de dados estratégica.</p>
+    
+    <div class="grid-3 projects-grid">
+      {projects.map(project => (
+        <div class="project-card glass-panel">
+          
+          <!-- Mock Graphic Screen for Premium Look -->
+          <div class={`project-graphic ${project.graphicType}`}>
+            {project.graphicType === "ecommerce" && (
+              <div class="mock-ui">
+                <div class="mock-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <div class="mock-bar">ecoshop.com</div>
+                </div>
+                <div class="mock-body ecommerce-body">
+                  <div class="mock-hero-banner"></div>
+                  <div class="mock-items">
+                    <div class="mock-item-card"><div class="img-box"></div><div class="txt-box"></div></div>
+                    <div class="mock-item-card"><div class="img-box"></div><div class="txt-box"></div></div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {project.graphicType === "data-dashboard" && (
+              <div class="mock-ui">
+                <div class="mock-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <div class="mock-bar">dashboard-sales</div>
+                </div>
+                <div class="mock-body dashboard-body">
+                  <div class="charts-row">
+                    <div class="pie-chart"></div>
+                    <div class="mini-stats">
+                      <div class="stat-line"></div>
+                      <div class="stat-line short"></div>
+                    </div>
+                  </div>
+                  <div class="bar-chart-mock">
+                    <div class="bar-fill h40"></div>
+                    <div class="bar-fill h70"></div>
+                    <div class="bar-fill h50"></div>
+                    <div class="bar-fill h90"></div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {project.graphicType === "api-pipeline" && (
+              <div class="mock-ui">
+                <div class="mock-header">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <div class="mock-bar">terminal - python</div>
+                </div>
+                <div class="mock-body terminal-body">
+                  <div class="terminal-line"><span class="cmd-prompt">&gt;</span> python etl_run.py</div>
+                  <div class="terminal-line log-line">[INFO] Lendo dados via Pandas...</div>
+                  <div class="terminal-line log-line">[INFO] Processando DataFrame (45000 rows)...</div>
+                  <div class="terminal-line success-line">✓ Conexão SQL ativa. Upload concluído!</div>
+                </div>
+              </div>
+            )}
+          </div>
+          
+          <div class="project-content">
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-desc">{project.description}</p>
+            
+            <div class="project-tags">
+              {project.tags.map(tag => (
+                <span class="badge">{tag}</span>
+              ))}
+            </div>
+            
+            <div class="project-links">
+              <a href={project.links.github} class="project-link" aria-label="Código Fonte no Github">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                Github
+              </a>
+              <a href={project.links.live} class="project-link link-demo" aria-label="Demo Online do Projeto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Demo Online
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    background-color: var(--bg-secondary);
+    position: relative;
+  }
+
+  .projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+  }
+
+  .projects-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: -2.5rem;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .projects-grid {
+    align-items: stretch;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Graphics Container Styles */
+  .project-graphic {
+    height: 180px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .ecommerce {
+    background: linear-gradient(135deg, rgba(255, 183, 197, 0.2) 0%, rgba(255, 228, 233, 0.4) 100%);
+  }
+
+  .data-dashboard {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 183, 197, 0.2) 100%);
+  }
+
+  .api-pipeline {
+    background: linear-gradient(135deg, rgba(74, 51, 56, 0.15) 0%, rgba(255, 183, 197, 0.15) 100%);
+  }
+
+  /* Mock UI Window Frame */
+  .mock-ui {
+    width: 90%;
+    height: 100%;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(10px);
+    transition: transform var(--transition-normal);
+  }
+
+  .project-card:hover .mock-ui {
+    transform: translateY(0px);
+  }
+
+  .mock-header {
+    height: 24px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    gap: 4px;
+  }
+
+  .mock-header .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--accent-rose);
+    opacity: 0.7;
+  }
+
+  .mock-bar {
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    background: var(--bg-primary);
+    padding: 0.05rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+  }
+
+  .mock-body {
+    flex: 1;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  /* Specific Body Mocks */
+  .ecommerce-body .mock-hero-banner {
+    height: 35px;
+    background: rgba(255, 183, 197, 0.3);
+    border-radius: 4px;
+  }
+
+  .ecommerce-body .mock-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+
+  .ecommerce-body .mock-item-card {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .ecommerce-body .img-box {
+    height: 30px;
+    background: rgba(255, 183, 197, 0.15);
+    border-radius: 2px;
+  }
+
+  .ecommerce-body .txt-box {
+    height: 6px;
+    background: var(--border-color);
+    width: 70%;
+    border-radius: 1px;
+  }
+
+  /* Dashboard Mock */
+  .dashboard-body .charts-row {
+    display: flex;
+    gap: 0.5rem;
+    height: 45px;
+  }
+
+  .dashboard-body .pie-chart {
+    width: 45px;
+    height: 45px;
+    border-radius: var(--radius-full);
+    border: 6px solid var(--accent-rose);
+    border-top-color: var(--primary-pink);
+    border-right-color: var(--primary-pink);
+    opacity: 0.8;
+  }
+
+  .dashboard-body .mini-stats {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .dashboard-body .stat-line {
+    height: 6px;
+    background: var(--border-color);
+    border-radius: var(--radius-full);
+  }
+
+  .dashboard-body .stat-line.short {
+    width: 60%;
+  }
+
+  .dashboard-body .bar-chart-mock {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 50px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2px;
+  }
+
+  .dashboard-body .bar-fill {
+    width: 14px;
+    background: var(--gradient-primary);
+    border-radius: 2px 2px 0 0;
+    opacity: 0.8;
+  }
+
+  .dashboard-body .bar-fill.h40 { height: 40%; }
+  .dashboard-body .bar-fill.h70 { height: 70%; }
+  .dashboard-body .bar-fill.h50 { height: 50%; }
+  .dashboard-body .bar-fill.h90 { height: 90%; }
+
+  /* Terminal Mock */
+  .terminal-body {
+    background: #1e1e1e !important;
+    border-radius: 0 0 4px 4px;
+    font-family: monospace;
+    color: #d4d4d4;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .terminal-body .mock-header {
+    background: #2d2d2d;
+  }
+
+  .terminal-line {
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .cmd-prompt {
+    color: #ffb7c5;
+  }
+
+  .log-line {
+    color: #888;
+  }
+
+  .success-line {
+    color: #a8e6cf;
+  }
+
+  /* Content Styling */
+  .project-content {
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .project-title {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1.25rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .project-link:hover {
+    color: var(--accent-rose);
+  }
+
+  .project-link svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .project-link:hover svg {
+    transform: translateY(-2px);
+  }
+
+  .link-demo:hover svg {
+    transform: translate(2px, -2px);
+  }
+</style>
